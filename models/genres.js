@@ -2,8 +2,36 @@ let mongoose = require('mongoose');
 
 // genre schema
 
-let genreSchema = mongoose.Schema({
+let movieSchema = mongoose.Schema({
     name: {
+        type: String,
+        required: true,
+    },
+    title: {
+        type: String,
+        required: true,
+    },
+    release: {
+        type: String,
+        required: true,
+    },
+    genre: {
+        type: String,
+        required: true,
+    },
+    director: {
+        type: String,
+        required: true,
+    },
+    writers: {
+        type: String,
+        required: true,
+    },
+    cast: {
+        type: String,
+        required: true,
+    },
+    img_url: {
         type: String,
         required: true,
     },
@@ -15,10 +43,10 @@ let genreSchema = mongoose.Schema({
 
 // set and export model
 
-let Genre = module.exports = mongoose.model('Genre', genreSchema);
+let Movie = module.exports = mongoose.model('Movie', movieSchema);
 
 // get genres
 
-module.exports.getGenres = function(callback, limit){
-    Genre.find(callback).limit(limit);
+module.exports.getMovies = function(callback, limit){
+    Movie.find(callback).limit(limit);
 }
